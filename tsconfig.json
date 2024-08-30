@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+// 這是一個TypeScript的tsconfig.json配置檔案，用於配置Next.js專案的編譯選項。以下是各個配置項的說明：
+
+// "lib": ["dom", "dom.iterable", "esnext"]: 指定編譯時要包含的庫，這裡包括DOM、DOM迭代器和最新的JavaScript語法支持。
+
+// "allowJs": true: 允許在TypeScript專案中使用JavaScript文件。
+
+// "skipLibCheck": true: 跳過類型檢查以加快編譯速度。
+
+// "strict": true: 啟用嚴格模式，強化TypeScript的類型檢查。
+
+// "noEmit": true: 禁止生成編譯輸出文件。
+
+// "esModuleInterop": true: 允許與使用CommonJS模塊的代碼進行互操作。
+
+// "module": "esnext": 設置模塊系統為ESNext，這是最新的ES模塊標準。
+
+// "moduleResolution": "bundler": 指定模塊解析策略為bundler，這適用於現代的打包工具，如Webpack或Rollup。
+
+// "resolveJsonModule": true: 允許導入JSON文件。
+
+// "isolatedModules": true: 確保每個文件作為獨立的模塊進行編譯。
+
+// "jsx": "preserve": 保留JSX語法，讓Babel或其他工具來處理它。
+
+// "incremental": true: 啟用增量編譯，提高編譯效率。
+
+// "plugins": [{"name": "next"}]: 添加Next.js特定的TypeScript插件，增強Next.js的支持。
+
+// "paths": {"@/*": ["./*"]}: 配置模塊路徑別名，使用@/來引用項目根目錄下的文件。
+
+// "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]: 指定要包含在編譯中的文件範圍。
+
+// "exclude": ["node_modules"]: 排除不需要編譯的文件或目錄，這裡排除了node_modules目錄。
+
+
+// 這個配置檔案主要用於優化Next.js專案的開發體驗，並確保TypeScript能夠與Next.js無縫配合。
