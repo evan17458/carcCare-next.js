@@ -57,7 +57,6 @@ const RegisterForm = ({ user }: { user: User }) => {
       formData.append("blobFile", blobFile);
       formData.append("fileName", values.identificationDocument[0].name);
     }
-    //console.log(user, "User");
     try {
       const patient = {
         userId: user.$id,
@@ -84,9 +83,9 @@ const RegisterForm = ({ user }: { user: User }) => {
           : undefined,
         privacyConsent: values.privacyConsent,
       };
-
+      console.log("patient-->", patient);
       const newPatient = await registerPatient(patient);
-
+      console.log("newPatient-->", newPatient);
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
@@ -118,7 +117,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             control={form.control}
             name="name"
             label="姓名"
-            placeholder="John Doe"
+            placeholder="王大同"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user"
           />
@@ -129,7 +128,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="email"
               label="電子郵件"
-              placeholder="johndoe@gmail.com"
+              placeholder="evansheng@gmail.com"
               iconSrc="/assets/icons/email.svg"
               iconAlt="email"
             />
@@ -184,7 +183,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="address"
               label="地址"
-              placeholder="14 street, New york, NY - 5101"
+              placeholder="台北市大同路91-1號"
             />
 
             <CustomFormField
@@ -203,7 +202,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="emergencyContactName"
               label="緊急通知人"
-              placeholder="Guardian's name"
+              placeholder="黃河合"
             />
 
             <CustomFormField
@@ -218,7 +217,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">醫療資訊</h2>
+            <h2 className="sub-header">汽車資訊</h2>
           </div>
 
           {/* PRIMARY CARE PHYSICIAN */}
@@ -226,8 +225,8 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SELECT}
             control={form.control}
             name="primaryPhysician"
-            label="初級保健醫生"
-            placeholder="選擇醫生"
+            label="維修技師"
+            placeholder="請選擇您的維修技師"
           >
             {Doctors.map((doctor, i) => (
               <SelectItem key={doctor.name + i} value={doctor.name}>
@@ -245,67 +244,64 @@ const RegisterForm = ({ user }: { user: User }) => {
             ))}
           </CustomFormField>
 
-          {/* INSURANCE & POLICY NUMBER */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="insuranceProvider"
-              label="保險提供者"
-              placeholder="BlueCross BlueShield"
+              label="車型品牌"
+              placeholder="輸入您的車型品牌 (如：Toyota, Honda)"
             />
 
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="insurancePolicyNumber"
-              label="保單號碼"
+              label="車牌號碼"
               placeholder="ABC123456789"
             />
           </div>
 
-          {/* ALLERGY & CURRENT MEDICATIONS */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="allergies"
-              label="過敏（如果有）"
-              placeholder="Peanuts, Penicillin, Pollen"
+              label="車輛問題描述"
+              placeholder="簡述您的車輛問題 (如：引擎異常聲音, 剎車異常)"
             />
 
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="currentMedication"
-              label="目前服用的藥物"
-              placeholder="Ibuprofen 200mg, Levothyroxine 50mcg"
+              label="已進行的維修項目"
+              placeholder="列出已進行的維修 (如：更換機油, 更換剎車片)"
             />
           </div>
 
-          {/* FAMILY MEDICATION & PAST MEDICATIONS */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="familyMedicalHistory"
-              label=" 家族病史（如果相關）"
-              placeholder="Mother had brain cancer, Father has hypertension"
+              label=" 車輛維修歷史"
+              placeholder="輸入車輛的維修歷史 (如：引擎大修, 車身修補)"
             />
 
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="pastMedicalHistory"
-              label="既往病史"
-              placeholder="Appendectomy in 2015, Asthma diagnosis in childhood"
+              label="過往事故記錄"
+              placeholder="列出過往事故記錄 (如：2015年發生碰撞, 曾進行保險理賠)"
             />
           </div>
         </section>
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">身份驗證</h2>
+            <h2 className="sub-header">車輪驗證</h2>
           </div>
 
           <CustomFormField
@@ -326,7 +322,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="identificationNumber"
-            label="身分證號碼"
+            label="車輪證明文件號碼"
             placeholder="123456789"
           />
 
@@ -334,7 +330,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SKELETON}
             control={form.control}
             name="identificationDocument"
-            label="身分證明文件掃描件"
+            label="車輪證明文件掃描件"
             renderSkeleton={(field) => (
               <FormControl>
                 <FileUploader files={field.value} onChange={field.onChange} />
@@ -352,21 +348,21 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="treatmentConsent"
-            label="我同意接受針對我的健康狀況的治療。."
+            label="我同意接受針對我的車輛狀況的維修。."
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="disclosureConsent"
-            label="我同意出於治療目的使用和披露我的健康資訊."
+            label="我同意出於維修目的使用和披露我的車輛資訊."
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="privacyConsent"
-            label="我承認我已閱讀並同意隱私權政策"
+            label="我承認我已閱讀並同意維修服務條款及隱私政策"
           />
         </section>
 

@@ -10,6 +10,7 @@ import { Appointment } from "@/types/appwrite.types";
 import { AppointmentModal } from "../AppointmentModal";
 import { StatusBadge } from "../StatusBadge";
 
+//管理員儀表板
 export const columns: ColumnDef<Appointment>[] = [
   {
     header: "#",
@@ -20,7 +21,7 @@ export const columns: ColumnDef<Appointment>[] = [
   //04:00:23
   {
     accessorKey: "patient",
-    header: "病人",
+    header: "顧客",
     cell: ({ row }) => {
       const appointment = row.original;
       return <p className="text-14-medium ">{appointment.patient.name}</p>;
@@ -52,7 +53,7 @@ export const columns: ColumnDef<Appointment>[] = [
   },
   {
     accessorKey: "primaryPhysician",
-    header: "醫生",
+    header: "維修技師",
     cell: ({ row }) => {
       const appointment = row.original;
 
@@ -69,14 +70,14 @@ export const columns: ColumnDef<Appointment>[] = [
             height={100}
             className="size-8"
           />
-          <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+          <p className="whitespace-nowrap"> {doctor?.name} </p>
         </div>
       );
     },
   },
   {
     id: "actions",
-    header: () => <div className="pl-4">Actions</div>,
+    header: () => <div className="pl-4">操作</div>,
     cell: ({ row }) => {
       const appointment = row.original;
 

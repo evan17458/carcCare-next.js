@@ -23,7 +23,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             type="create"
           />
           {/* 某些數據庫系統或ORM(對象關係映射)框架可能使用$id作為主鍵或唯一標識符的默認名稱,而不是更常見的id */}
-          <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
+          <p className="copyright mt-10 py-12">© 2024 Carecar</p>
         </div>
       </section>
 

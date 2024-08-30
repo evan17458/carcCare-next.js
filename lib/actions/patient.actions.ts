@@ -75,7 +75,11 @@ export const registerPatient = async ({
   try {
     // Upload file ->  // https://appwrite.io/docs/references/cloud/client-web/storage#createFile
     let file;
+    console.log("ENDPOINT", ENDPOINT);
+    console.log("BUCKET_ID", BUCKET_ID);
+    console.log("PROJECT_ID", PROJECT_ID);
     if (identificationDocument) {
+      console.log("有進來");
       const inputFile =
         identificationDocument &&
         InputFile.fromBlob(
@@ -85,7 +89,7 @@ export const registerPatient = async ({
 
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
-
+    console.log("file", file);
     // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
     const newPatient = await databases.createDocument(
       DATABASE_ID!,

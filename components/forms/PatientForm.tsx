@@ -63,7 +63,7 @@ export const PatientForm = () => {
           control={form.control}
           name="name"
           label="姓名"
-          placeholder="John Doe"
+          placeholder="陳建明"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
@@ -73,7 +73,7 @@ export const PatientForm = () => {
           control={form.control}
           name="email"
           label="電子郵件"
-          placeholder="johndoe@gmail.com"
+          placeholder="evansheng@gmail.com"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
         />

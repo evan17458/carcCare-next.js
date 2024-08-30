@@ -148,8 +148,8 @@ export const AppointmentForm = ({
               fieldType={FormFieldType.SELECT}
               control={form.control}
               name="primaryPhysician"
-              label="醫生"
-              placeholder="選擇醫生"
+              label="維修技師"
+              placeholder="請選擇您的維修技師"
             >
               {Doctors.map((doctor, i) => (
                 <SelectItem key={doctor.name + i} value={doctor.name}>

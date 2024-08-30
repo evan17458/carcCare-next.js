@@ -62,7 +62,7 @@ export const PasskeyModal = () => {
 
       setOpen(false);
     } else {
-      setError("Invalid passkey. Please try again.");
+      setError("密碼無效。請再試一次。");
     }
   };
 

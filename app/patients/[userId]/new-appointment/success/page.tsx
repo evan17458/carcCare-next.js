@@ -55,7 +55,7 @@ const RequestSuccess = async ({
               height={100}
               className="size-6"
             />
-            <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+            <p className="whitespace-nowrap"> {doctor?.name}技師</p>
           </div>
           <div className="flex gap-2">
             <Image
@@ -72,7 +72,7 @@ const RequestSuccess = async ({
           <Link href={`/patients/${userId}/new-appointment`}>新的預約</Link>
         </Button>
 
-        <p className="copyright">© 2024 CarePluse</p>
+        <p className="copyright">© 2024 Carecar</p>
       </div>
     </div>
   );
