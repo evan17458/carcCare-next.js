@@ -54,7 +54,6 @@ export const PatientForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         <section className="mb-12 space-y-4">
-          <h1 className="header">你好呀 👋</h1>
           <p className="text-dark-700">開始預約.</p>
         </section>
 

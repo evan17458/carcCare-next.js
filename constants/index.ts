@@ -73,10 +73,6 @@ export const Doctors = [
     image: "/assets/images/08.jpg",
     name: "張東建",
   },
-  {
-    image: "/assets/images/dr-sharma.png",
-    name: "黃子維",
-  },
 ];
 
 export const StatusIcon = {
