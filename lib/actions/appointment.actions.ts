@@ -88,7 +88,6 @@ export const getRecentAppointmentList = async () => {
   }
 };
 //03:09:40
-//  SEND SMS NOTIFICATION
 export const sendSMSNotification = async (userId: string, content: string) => {
   //05:09:09
   try {

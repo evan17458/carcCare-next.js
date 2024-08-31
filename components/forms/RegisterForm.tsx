@@ -100,8 +100,8 @@ const RegisterForm = ({ user }: { user: User }) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header"> 歡迎👋</h1>
-          <p className="text-dark-700">讓我們更了解你自己.</p>
+          {/* <h1 className="header"> 歡迎👋</h1> */}
+          {/* <p className="text-dark-700">讓我們更了解你自己.</p> */}
         </section>
 
         <section className="space-y-6">
@@ -151,7 +151,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.SKELETON}
               control={form.control}
               name="gender"
-              label="姓別"
+              label="性別"
               renderSkeleton={(field) => (
                 <FormControl>
                   <RadioGroup

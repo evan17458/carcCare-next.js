@@ -1,4 +1,4 @@
-export const GenderOptions = ["male", "female", "other"];
+export const GenderOptions = ["男", "女", "其它"];
 
 export const PatientFormDefaultValues = {
   firstName: "",
@@ -6,7 +6,7 @@ export const PatientFormDefaultValues = {
   email: "",
   phone: "",
   birthDate: new Date(Date.now()),
-  gender: "male" as Gender,
+  gender: "男" as Gender,
   address: "",
   occupation: "",
   emergencyContactName: "",
@@ -42,36 +42,36 @@ export const IdentificationTypes = [
 
 export const Doctors = [
   {
-    image: "/assets/images/dr-green.png",
+    image: "/assets/images/01.png",
     name: "王建綸",
   },
   {
-    image: "/assets/images/dr-cameron.png",
+    image: "/assets/images/02.jpg",
     name: "林佳蓉",
   },
   {
-    image: "/assets/images/dr-livingston.png",
+    image: "/assets/images/03.jpg",
     name: "李大維",
   },
   {
-    image: "/assets/images/dr-peter.png",
+    image: "/assets/images/04.jpg",
     name: "陳奕凡",
   },
   {
-    image: "/assets/images/dr-powell.png",
-    name: "陳靜雯",
+    image: "/assets/images/05.jpeg",
+    name: "陳建華",
   },
   {
-    image: "/assets/images/dr-remirez.png",
+    image: "/assets/images/06.webp",
     name: "林承恩",
   },
   {
-    image: "/assets/images/dr-lee.png",
-    name: "李茉莉",
+    image: "/assets/images/07.jpg",
+    name: "李文雄",
   },
   {
-    image: "/assets/images/dr-cruz.png",
-    name: "張雅涵",
+    image: "/assets/images/08.jpg",
+    name: "張東建",
   },
   {
     image: "/assets/images/dr-sharma.png",

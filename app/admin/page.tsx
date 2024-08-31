@@ -27,7 +27,7 @@ const AdminPage = async () => {
 
       <main className="admin-main">
         <section className="w-full space-y-4">
-          <h1 className="header">歡迎 👋</h1>
+          {/* <h1 className="header">歡迎 👋</h1> */}
           <p className="text-dark-700">從管理新預約開始新的一天</p>
         </section>
 

@@ -4,7 +4,7 @@ export const UserFormValidation = z.object({
   name: z
     .string()
     .min(2, "名稱必須至少有 2 個字符")
-    .max(50, "名稱不得超過 50 個字符"),
+    .max(20, "名稱不得超過 20 個字符"),
   email: z.string().email("電子郵件地址無效"),
   phone: z
     .string()
@@ -29,7 +29,7 @@ export const PatientFormValidation = z.object({
     .string()
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "電話號碼無效"),
   birthDate: z.coerce.date(),
-  gender: z.enum(["male", "female", "other"]),
+  gender: z.enum(["男", "女", "其它"]),
   address: z
     .string()
     .min(10, "地址必須至少為 10 個字")
@@ -68,7 +68,7 @@ export const PatientFormValidation = z.object({
     .boolean()
     .default(false)
     .refine((value) => value === true, {
-      message: "您必須同意治療才能繼續",
+      message: "您必須同意維修才能繼續",
     }),
   disclosureConsent: z
     .boolean()
@@ -90,7 +90,7 @@ export const CreateAppointmentSchema = z.object({
   reason: z
     .string()
     .min(2, "原因必須至少2個字")
-    .max(500, "Reason must be at most 500 characters"),
+    .max(500, "原因不得超過 500 個字"),
   note: z.string().optional(),
   cancellationReason: z.string().optional(),
 });
@@ -104,14 +104,14 @@ export const ScheduleAppointmentSchema = z.object({
 });
 
 export const CancelAppointmentSchema = z.object({
-  primaryPhysician: z.string().min(2, "Select at least one doctor"),
+  primaryPhysician: z.string().min(2, "選擇至少一位"),
   schedule: z.coerce.date(),
   reason: z.string().optional(),
   note: z.string().optional(),
   cancellationReason: z
     .string()
     .min(2, "原因必須至少 2 個字")
-    .max(500, "Reason must be at most 500 characters"),
+    .max(500, "原因不得超過 500 個字"),
 });
 
 export function getAppointmentSchema(type: string) {
