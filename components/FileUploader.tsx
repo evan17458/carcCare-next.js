@@ -3,18 +3,18 @@
 import Image from "next/image";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-
+//02:04:28
 import { convertFileToUrl } from "@/lib/utils";
 
 type FileUploaderProps = {
   files: File[] | undefined;
   onChange: (files: File[]) => void;
 };
-
+//https://www.npmjs.com/package/react-dropzone
 export const FileUploader = ({ files, onChange }: FileUploaderProps) => {
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  const onDrop = (acceptedFiles: File[]) => {
     onChange(acceptedFiles);
-  }, []);
+  };
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 

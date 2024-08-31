@@ -8,7 +8,11 @@ export function cn(...inputs: ClassValue[]) {
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
-
+//  可以用來將 File 物件或是 Blob (Binary Large Object) 物件，
+//  轉換成帶有 URL 的 DOMString 以「代表參數」中所傳入的物件，
+//  處理上傳圖片數據、可以用來顯示影片或圖片，
+//  不需要將 Blob 物件轉換成 Base64 編碼或其他格式，
+//  可以節省電腦或裝置上 Memory 記憶體和效能。
 // FORMAT DATE TIME
 export const formatDateTime = (
   dateString: Date | string,

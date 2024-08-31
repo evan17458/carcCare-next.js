@@ -11,7 +11,6 @@ export const {
   NEXT_PUBLIC_BUCKET_ID: BUCKET_ID,
 } = process.env;
 
-//01:05:06
 const client = new sdk.Client();
 //創建一個新的 Appwrite 客戶端實例
 client.setEndpoint(ENDPOINT!).setProject(PROJECT_ID!).setKey(API_KEY!);

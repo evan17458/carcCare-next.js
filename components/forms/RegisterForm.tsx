@@ -42,7 +42,6 @@ const RegisterForm = ({ user }: { user: User }) => {
 
   const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
     setIsLoading(true);
-    console.log(user, "User");
     // Store file info in form data as
     let formData;
     if (
@@ -83,9 +82,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           : undefined,
         privacyConsent: values.privacyConsent,
       };
-      console.log("patient-->", patient);
       const newPatient = await registerPatient(patient);
-      console.log("newPatient-->", newPatient);
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
@@ -332,6 +329,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="identificationDocument"
             label="車輪證明文件掃描件"
             renderSkeleton={(field) => (
+              //02:03:54
               <FormControl>
                 <FileUploader files={field.value} onChange={field.onChange} />
               </FormControl>

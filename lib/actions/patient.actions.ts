@@ -17,9 +17,11 @@ import { parseStringify } from "../utils";
 // CREATE APPWRITE USER
 
 // 初始化 Users 服務
+//
 // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
 export const createUser = async (user: CreateUserParams) => {
   // console.log("user.phone", user.phone);//要+8860935397742;
+  //api要求phone要有國碼
   try {
     const newuser = await users.create(
       ID.unique(),
@@ -75,11 +77,7 @@ export const registerPatient = async ({
   try {
     // Upload file ->  // https://appwrite.io/docs/references/cloud/client-web/storage#createFile
     let file;
-    console.log("ENDPOINT", ENDPOINT);
-    console.log("BUCKET_ID", BUCKET_ID);
-    console.log("PROJECT_ID", PROJECT_ID);
     if (identificationDocument) {
-      console.log("有進來");
       const inputFile =
         identificationDocument &&
         InputFile.fromBlob(
@@ -89,7 +87,6 @@ export const registerPatient = async ({
 
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
-    console.log("file", file);
     // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
     const newPatient = await databases.createDocument(
       DATABASE_ID!,
@@ -110,7 +107,6 @@ export const registerPatient = async ({
   }
 };
 //2:21:53
-// GET PATIENT
 export const getPatient = async (userId: string) => {
   try {
     const patients = await databases.listDocuments(
