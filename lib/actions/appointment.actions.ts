@@ -37,11 +37,11 @@ export const createAppointment = async (
     console.error("An error occurred while creating a new appointment:", error);
   }
 };
-//2:55:36
+// 2:55:36
 //  GET RECENT APPOINTMENTS
 
 export const getRecentAppointmentList = async () => {
-  //03:46:21
+  // 03:46:21
   try {
     const appointments = await databases.listDocuments(
       DATABASE_ID!,
@@ -87,7 +87,7 @@ export const getRecentAppointmentList = async () => {
     );
   }
 };
-//03:09:40
+// 03:09:40
 export const sendSMSNotification = async (userId: string, content: string) => {
   //05:09:09
   try {
@@ -113,7 +113,7 @@ export const updateAppointment = async ({
   type,
 }: UpdateAppointmentParams) => {
   try {
-    //04:20:13
+    // 04:20:13
     // Update appointment to scheduled -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#updateDocument
     const updatedAppointment = await databases.updateDocument(
       DATABASE_ID!,
@@ -134,7 +134,7 @@ export const updateAppointment = async ({
      }.`;
 
     await sendSMSNotification(userId, smsMessage);
-    //5:11:37
+    // 5:11:37
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
   } catch (error) {

@@ -8,7 +8,7 @@ import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 
 const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
-  //03:50:14
+  // 03:50:14
   return (
     <div className="mx-auto flex max-w-7xl flex-col space-y-14">
       <header className="admin-header">
@@ -59,4 +59,4 @@ const AdminPage = async () => {
 };
 
 export default AdminPage;
-//03:36:48
+// 03:36:48

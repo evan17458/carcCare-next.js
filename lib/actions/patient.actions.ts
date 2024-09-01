@@ -38,7 +38,7 @@ export const createUser = async (user: CreateUserParams) => {
     return parseStringify(newuser);
   } catch (error: any) {
     // Check existing user
-    //1:18:07
+    // 1:18:07
     if (error && error?.code === 409) {
       const existingUser = await users.list([
         Query.equal("email", [user.email]),
@@ -54,7 +54,7 @@ export const createUser = async (user: CreateUserParams) => {
 // 特別處理錯誤碼 409（通常表示資源已存在）。
 // 如果是 409 錯誤，嘗試查找已存在的用戶並返回。
 // 其他錯誤則記錄到控制台。
-//1:16:21
+// 1:16:21
 // GET USER
 export const getUser = async (userId: string) => {
   try {
@@ -68,7 +68,7 @@ export const getUser = async (userId: string) => {
     );
   }
 };
-//01:26:24
+// 01:26:24
 // REGISTER PATIENT
 export const registerPatient = async ({
   identificationDocument,
@@ -100,13 +100,13 @@ export const registerPatient = async ({
         ...patient,
       }
     );
-    //02:25:58
+    // 02:25:58
     return parseStringify(newPatient);
   } catch (error) {
     console.error("An error occurred while creating a new patient:", error);
   }
 };
-//2:21:53
+// 2:21:53
 export const getPatient = async (userId: string) => {
   try {
     const patients = await databases.listDocuments(
@@ -123,4 +123,4 @@ export const getPatient = async (userId: string) => {
     );
   }
 };
-//2:43:51
+// 2:43:51

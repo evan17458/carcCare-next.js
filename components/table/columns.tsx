@@ -10,7 +10,7 @@ import { Appointment } from "@/types/appwrite.types";
 import { AppointmentModal } from "../AppointmentModal";
 import { StatusBadge } from "../StatusBadge";
 
-//管理員儀表板
+// 管理員儀表板
 export const columns: ColumnDef<Appointment>[] = [
   {
     header: "#",
@@ -18,7 +18,7 @@ export const columns: ColumnDef<Appointment>[] = [
       return <p className="text-14-medium ">{row.index + 1}</p>;
     },
   },
-  //04:00:23
+  // 04:00:23
   {
     accessorKey: "patient",
     header: "顧客",
@@ -100,4 +100,4 @@ export const columns: ColumnDef<Appointment>[] = [
     },
   },
 ];
-//03:56:54
+// 03:56:54

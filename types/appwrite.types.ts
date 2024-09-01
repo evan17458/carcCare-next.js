@@ -1,5 +1,5 @@
 import { Models } from "node-appwrite";
-//01:16:29
+// 01:16:29
 export interface Patient extends Models.Document {
   userId: string;
   name: string;

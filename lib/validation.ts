@@ -18,7 +18,7 @@ export const UserFormValidation = z.object({
 // 第二個參數是當驗證失敗時的錯誤信息 "電話號碼無效"，
 // 即當電話號碼不符合正則表達式的要求時，將會返回此錯誤提示。
 
-//54:58
+// 54:58
 export const PatientFormValidation = z.object({
   name: z
     .string()
@@ -124,4 +124,4 @@ export function getAppointmentSchema(type: string) {
       return ScheduleAppointmentSchema;
   }
 }
-//2:52:05
+// 2:52:05
