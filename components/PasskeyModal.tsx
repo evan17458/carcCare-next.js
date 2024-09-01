@@ -31,11 +31,11 @@ export const PasskeyModal = () => {
     typeof window !== "undefined"
       ? window.localStorage.getItem("accessKey")
       : null;
-  //03:33:06
+  // 03:33:06
   useEffect(() => {
     const accessKey = encryptedKey && decryptKey(encryptedKey);
-    //要先解碼
-    //03:35:43
+    // 要先解碼
+    // 03:35:43
     if (path)
       if (accessKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!?.toString()) {
         setOpen(false);
@@ -119,4 +119,4 @@ export const PasskeyModal = () => {
     </AlertDialog>
   );
 };
-//3:22:15
+// 3:22:15

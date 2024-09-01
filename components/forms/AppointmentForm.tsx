@@ -52,9 +52,9 @@ export const AppointmentForm = ({
       //note: appointment?appointment?.note:"",
       cancellationReason: appointment?.cancellationReason || "",
     },
-    //04:24:48 增加有appointment的情形
+    // 04:24:48 增加有appointment的情形
   });
-  //02:52:14
+  // 02:52:14
   const onSubmit = async (
     values: z.infer<typeof AppointmentFormValidation>
   ) => {
@@ -73,7 +73,7 @@ export const AppointmentForm = ({
     }
 
     try {
-      //2:53:36
+      // 2:53:36
       if (type === "create" && patientId) {
         const appointment = {
           userId,
@@ -86,7 +86,7 @@ export const AppointmentForm = ({
         };
 
         const newAppointment = await createAppointment(appointment);
-        //2:55:36
+        // 2:55:36
         if (newAppointment) {
           form.reset();
           router.push(
@@ -106,7 +106,7 @@ export const AppointmentForm = ({
           type,
           timeZone: "Asia/Taipei",
         };
-        //04:19:18
+        // 04:19:18
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
         if (updatedAppointment) {
@@ -220,4 +220,4 @@ export const AppointmentForm = ({
     </Form>
   );
 };
-//2:42:30
+// 2:42:30

@@ -31,9 +31,9 @@ export const StatusBadge = ({ status }: { status: Status }) => {
     </div>
   );
 };
-//04:03:40
-//如果不使用 clsx，你可以使用 JavaScript 的条件运算符和模板字符串来实现同样的功能。
-//以下是不用 clsx 的原始写法：
+// 04:03:40
+// 如果不使用 clsx，你可以使用 JavaScript 的条件运算符和模板字符串来实现同样的功能。
+// 以下是不用 clsx 的原始写法：
 //  className={`status-badge ${
 //     status === "scheduled"
 //       ? "bg-green-600"

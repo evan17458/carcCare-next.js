@@ -329,7 +329,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="identificationDocument"
             label="車輪證明文件掃描件"
             renderSkeleton={(field) => (
-              //02:03:54
+              // 02:03:54
               <FormControl>
                 <FileUploader files={field.value} onChange={field.onChange} />
               </FormControl>

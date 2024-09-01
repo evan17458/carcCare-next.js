@@ -39,4 +39,4 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
 };
 
 export default Appointment;
-//02:38:26
+// 02:38:26

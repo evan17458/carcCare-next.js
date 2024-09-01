@@ -34,4 +34,4 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
 };
 
 export default SubmitButton;
-//51:24
+// 51:24

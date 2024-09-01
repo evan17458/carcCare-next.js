@@ -36,12 +36,12 @@ export const PatientForm = () => {
         email: values.email,
         phone: values.phone,
       };
-      //58:06
+      // 58:06
       const newUser = await createUser(user);
-      //1:16:51
+      // 1:16:51
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
-        //1:21:11
+        // 1:21:11
       }
     } catch (error) {
       console.log(error);

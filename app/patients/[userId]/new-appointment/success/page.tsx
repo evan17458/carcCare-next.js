@@ -11,13 +11,13 @@ const RequestSuccess = async ({
   params: { userId },
 }: SearchParamProps) => {
   const appointmentId = (searchParams?.appointmentId as string) || "";
-  //03:11:08
+  // 03:11:08
   const appointment = await getAppointment(appointmentId);
 
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
-  //3:12:47
+  // 3:12:47
   return (
     <div className=" flex h-screen max-h-screen px-[5%]">
       <div className="success-img">
