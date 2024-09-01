@@ -29,7 +29,6 @@ export const PatientForm = () => {
 
   const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
     setIsLoading(true);
-
     try {
       const user = {
         name: values.name,
@@ -49,7 +48,6 @@ export const PatientForm = () => {
     } catch (error) {
       console.log(error);
     }
-
     setIsLoading(false);
   };
 
