@@ -42,6 +42,9 @@ export const PatientForm = () => {
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
         // 1:21:11
+        // 跳到register頁面後 const -->Register
+        // 會檢查user = await getUser(userId);
+        // 如果有的話,redirect(`/patients/${userId}/new-appointment`);
       }
     } catch (error) {
       console.log(error);

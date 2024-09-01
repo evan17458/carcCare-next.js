@@ -6,7 +6,6 @@ import { getPatient, getUser } from "@/lib/actions/patient.actions";
 
 const Register = async ({ params: { userId } }: SearchParamProps) => {
   // 01:26:36
-  console.log("userId", userId);
 
   const user = await getUser(userId);
   const patient = await getPatient(userId);
