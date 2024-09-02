@@ -13,10 +13,16 @@ import { UserFormValidation } from "@/lib/validation";
 import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
-
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 export const PatientForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const form = useForm<z.infer<typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
@@ -38,12 +44,15 @@ export const PatientForm = () => {
       // 58:06
       const newUser = await createUser(user);
       // 1:16:51
+      // console.log("1111", newUser);
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
         // 1:21:11
         // 跳到register頁面後 const -->Register
         // 會檢查user = await getUser(userId);
         // 如果有的話,redirect(`/patients/${userId}/new-appointment`);
+      } else {
+        setOpen(true);
       }
     } catch (error) {
       console.log(error);
@@ -88,6 +97,22 @@ export const PatientForm = () => {
 
         <SubmitButton isLoading={isLoading}>開始使用</SubmitButton>
       </form>
+
+      <AlertDialog open={open} onOpenChange={setOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-center">
+              系統發現已經存在具有相同 ID、電子郵件或電話號碼的使用者
+            </AlertDialogTitle>
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute -top-2 right-2 text-gray-400 hover:text-gray-600"
+            >
+              x
+            </button>
+          </AlertDialogHeader>
+        </AlertDialogContent>
+      </AlertDialog>
     </Form>
   );
 };

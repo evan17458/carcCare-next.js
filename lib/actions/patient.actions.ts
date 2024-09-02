@@ -34,16 +34,18 @@ export const createUser = async (user: CreateUserParams) => {
     // 使用 Appwrite 的 users.create 方法創建新用戶。
     // 參數包括：唯一ID、電子郵件、電話、密碼（這裡設為 undefined）和名稱。
     // 創建成功後，通過 parseStringify 函數處理並返回新用戶資料。
-
+    // console.log("newuser-->", newuser);
     return parseStringify(newuser);
   } catch (error: any) {
     // Check existing user
     // 1:18:07
     if (error && error?.code === 409) {
+      //系統發現已經存在具有相同 ID、電子郵件或電話號碼的使用者
       const existingUser = await users.list([
         Query.equal("email", [user.email]),
       ]);
 
+      //console.log("existingUser", existingUser);
       return existingUser.users[0];
     }
     console.error("An error occurred while creating a new user:", error);

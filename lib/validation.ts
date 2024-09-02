@@ -8,7 +8,11 @@ export const UserFormValidation = z.object({
   email: z.string().email("電子郵件地址無效"),
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "電話號碼無效"),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "電話號碼無效")
+    .refine(
+      (phone) => phone.startsWith("+"),
+      "電話號碼必須加上國際代碼,例如+886"
+    ),
 });
 //  z.string() 表示這個字段的類型必須是字符串。
 // refine() 方法接受兩個參數：
@@ -27,7 +31,11 @@ export const PatientFormValidation = z.object({
   email: z.string().email("電子郵件地址無效"),
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "電話號碼無效"),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "電話號碼無效")
+    .refine(
+      (phone) => phone.startsWith("+"),
+      "電話號碼必須加上國際代碼,例如+886"
+    ),
   birthDate: z.coerce.date(),
   gender: z.enum(["男", "女", "其它"]),
   address: z

@@ -42,7 +42,6 @@ const RegisterForm = ({ user }: { user: User }) => {
 
   const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
     setIsLoading(true);
-    // Store file info in form data as
     let formData;
     if (
       values.identificationDocument &&
@@ -173,7 +172,6 @@ const RegisterForm = ({ user }: { user: User }) => {
             />
           </div>
 
-          {/* Address & Occupation */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.INPUT}
@@ -192,7 +190,6 @@ const RegisterForm = ({ user }: { user: User }) => {
             />
           </div>
 
-          {/* Emergency Contact Name & Emergency Contact Number */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.INPUT}
@@ -217,7 +214,6 @@ const RegisterForm = ({ user }: { user: User }) => {
             <h2 className="sub-header">汽車資訊</h2>
           </div>
 
-          {/* PRIMARY CARE PHYSICIAN */}
           <CustomFormField
             fieldType={FormFieldType.SELECT}
             control={form.control}
@@ -225,7 +221,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             label="維修技師"
             placeholder="請選擇您的維修技師"
           >
-            {Doctors.map((doctor, i) => (
+            {Doctors?.map((doctor, i) => (
               <SelectItem key={doctor.name + i} value={doctor.name}>
                 <div className="flex cursor-pointer items-center gap-2">
                   <Image
@@ -298,7 +294,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">車輪驗證</h2>
+            <h2 className="sub-header">車輛驗證</h2>
           </div>
 
           <CustomFormField
@@ -306,7 +302,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             control={form.control}
             name="identificationType"
             label="識別類型"
-            placeholder="Select identification type"
+            placeholder="選擇識別類型"
           >
             {IdentificationTypes?.map((type, i) => (
               <SelectItem key={type + i} value={type}>
@@ -319,7 +315,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="identificationNumber"
-            label="車輪證明文件號碼"
+            label="車輛證明文件號碼"
             placeholder="123456789"
           />
 
@@ -327,7 +323,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SKELETON}
             control={form.control}
             name="identificationDocument"
-            label="車輪證明文件掃描件"
+            label="車輛證明文件掃描件"
             renderSkeleton={(field) => (
               // 02:03:54
               <FormControl>
