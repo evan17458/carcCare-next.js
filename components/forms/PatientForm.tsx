@@ -44,7 +44,7 @@ export const PatientForm = () => {
       // 58:06
       const newUser = await createUser(user);
       // 1:16:51
-      // console.log("1111", newUser);
+      // 如何newUser沒拿到,因為系統發現已經存在具有相同 ID、電子郵件或電話號碼的使用者
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
         // 1:21:11

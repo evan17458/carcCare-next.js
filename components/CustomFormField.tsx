@@ -43,6 +43,7 @@ interface CustomProps {
 }
 
 const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
+  //00:40:25
   switch (props.fieldType) {
     case FormFieldType.INPUT:
       return (
