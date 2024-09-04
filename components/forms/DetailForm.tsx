@@ -69,12 +69,12 @@ const DetailForm = ({ user }: { user: User }) => {
         emergencyContactName: values.emergencyContactName,
         emergencyContactNumber: values.emergencyContactNumber,
         technician: values.technician,
-        insuranceProvider: values.insuranceProvider,
-        insurancePolicyNumber: values.insurancePolicyNumber,
-        allergies: values.allergies,
-        currentMedication: values.currentMedication,
-        familyMedicalHistory: values.familyMedicalHistory,
-        pastMedicalHistory: values.pastMedicalHistory,
+        carBrand: values.carBrand,
+        carNumber: values.carNumber,
+        carProblem: values.carProblem,
+        currentFix: values.currentFix,
+        carFixHistory: values.carFixHistory,
+        pastAccidentRecords: values.pastAccidentRecords,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
         identificationDocument: values.identificationDocument
@@ -237,15 +237,15 @@ const DetailForm = ({ user }: { user: User }) => {
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
-              name="insuranceProvider"
-              label="車型品牌"
-              placeholder="輸入您的車型品牌 (如：Toyota, Honda)"
+              name="carBrand"
+              label="汽車品牌"
+              placeholder="輸入您的汽車品牌 (如：Toyota, Honda)"
             />
 
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
-              name="insurancePolicyNumber"
+              name="carNumber"
               label="車牌號碼"
               placeholder="ABC123456789"
             />
@@ -255,7 +255,7 @@ const DetailForm = ({ user }: { user: User }) => {
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
-              name="allergies"
+              name="carProblem"
               label="車輛問題描述"
               placeholder="簡述您的車輛問題 (如：引擎異常聲音, 剎車異常)"
             />
@@ -263,7 +263,7 @@ const DetailForm = ({ user }: { user: User }) => {
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
-              name="currentMedication"
+              name="currentFix"
               label="已進行的維修項目"
               placeholder="列出已進行的維修 (如：更換機油, 更換剎車片)"
             />
@@ -273,7 +273,7 @@ const DetailForm = ({ user }: { user: User }) => {
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
-              name="familyMedicalHistory"
+              name="carFixHistory"
               label=" 車輛維修歷史"
               placeholder="輸入車輛的維修歷史 (如：引擎大修, 車身修補)"
             />
@@ -281,7 +281,7 @@ const DetailForm = ({ user }: { user: User }) => {
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
-              name="pastMedicalHistory"
+              name="pastAccidentRecords"
               label="過往事故記錄"
               placeholder="列出過往事故記錄 (如：2015年發生碰撞, 曾進行保險理賠)"
             />

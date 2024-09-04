@@ -25,12 +25,12 @@ declare interface RegisterUserParams extends CreateUserParams {
   emergencyContactName: string;
   emergencyContactNumber: string;
   technician: string;
-  insuranceProvider: string;
-  insurancePolicyNumber: string;
-  allergies: string | undefined;
-  currentMedication: string | undefined;
-  familyMedicalHistory: string | undefined;
-  pastMedicalHistory: string | undefined;
+  carBrand: string;
+  carNumber: string;
+  carProblem: string | undefined;
+  currentFix: string | undefined;
+  carFixHistory: string | undefined;
+  pastAccidentRecords: string | undefined;
   identificationType: string | undefined;
   identificationNumber: string | undefined;
   identificationDocument: FormData | undefined;

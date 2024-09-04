@@ -257,18 +257,18 @@ export const DetailFormValidation = z.object({
       "電話號碼必須加上有效的國際代碼"
     ),
   technician: z.string().min(2, "選擇至少一位"),
-  insuranceProvider: z
+  carBrand: z
     .string()
     .min(3, "車型品牌至少3個字")
     .max(20, "車型品牌不得超過20個字"),
-  insurancePolicyNumber: z
+  carNumber: z
     .string()
     .min(6, "車牌號碼必須至少6個字")
     .max(20, "車牌號碼不得超過20個字"),
-  allergies: z.string().optional(),
-  currentMedication: z.string().optional(),
-  familyMedicalHistory: z.string().optional(),
-  pastMedicalHistory: z.string().optional(),
+  carProblem: z.string().optional(),
+  currentFix: z.string().optional(),
+  carFixHistory: z.string().optional(),
+  pastAccidentRecords: z.string().optional(),
   identificationType: z.string().min(1, "必選"),
   identificationNumber: z.string().min(1, "必填"),
   identificationDocument: z.custom<File[]>((value) => {
