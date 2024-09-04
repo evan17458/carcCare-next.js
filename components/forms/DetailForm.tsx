@@ -26,7 +26,7 @@ import CustomFormField, { FormFieldType } from "../CustomFormField";
 import { FileUploader } from "../FileUploader";
 import SubmitButton from "../SubmitButton";
 
-const RegisterForm = ({ user }: { user: User }) => {
+const DetailForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -37,6 +37,7 @@ const RegisterForm = ({ user }: { user: User }) => {
       name: user?.name,
       email: user?.email,
       phone: user?.phone,
+      // 從父元件呼叫getUser(userId),拿到預設值
     },
   });
 
@@ -98,12 +99,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex-1 space-y-12"
       >
-        <section className="space-y-4">
-          {/* <h1 className="header"> 歡迎👋</h1> */}
-          {/* <p className="text-dark-700">讓我們更了解你自己.</p> */}
-        </section>
-
-        <section className="space-y-6">
+        <section className="space-y-6 mt-7">
           <div className="mb-9 space-y-1">
             <h2 className="sub-header">個人資訊</h2>
           </div>
@@ -366,4 +362,4 @@ const RegisterForm = ({ user }: { user: User }) => {
   );
 };
 
-export default RegisterForm;
+export default DetailForm;

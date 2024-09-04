@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import RegisterForm from "@/components/forms/RegisterForm";
+import DetailForm from "@/components/forms/DetailForm";
 import { getPatient, getUser } from "@/lib/actions/patient.actions";
 
 const Register = async ({ params: { userId } }: SearchParamProps) => {
@@ -23,7 +23,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
             className="-mb-4 h-10 w-fit"
           />
 
-          <RegisterForm user={user} />
+          <DetailForm user={user} />
 
           <p className="copyright py-12">© 2024 Carecar</p>
         </div>
