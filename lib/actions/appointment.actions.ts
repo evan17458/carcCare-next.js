@@ -128,7 +128,7 @@ export const updateAppointment = async ({
      ${
        type === "schedule"
          ? `您的預約已確認
-       ${formatDateTime(appointment.schedule!, timeZone).dateTime} 和  ${appointment.primaryPhysician}技師`
+       ${formatDateTime(appointment.schedule!, timeZone).dateTime} 和  ${appointment.technician}技師`
          : `我們很遺憾地通知您，您的預約 ${formatDateTime(appointment.schedule!, timeZone).dateTime}
          被取消. 原因:  ${appointment.cancellationReason}`
      }.`;

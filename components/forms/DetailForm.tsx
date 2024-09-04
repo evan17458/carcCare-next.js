@@ -57,7 +57,7 @@ const DetailForm = ({ user }: { user: User }) => {
       formData.append("fileName", values.identificationDocument[0].name);
     }
     try {
-      const patient = {
+      const technician = {
         userId: user.$id,
         name: values.name,
         email: values.email,
@@ -68,7 +68,7 @@ const DetailForm = ({ user }: { user: User }) => {
         occupation: values.occupation,
         emergencyContactName: values.emergencyContactName,
         emergencyContactNumber: values.emergencyContactNumber,
-        primaryPhysician: values.primaryPhysician,
+        technician: values.technician,
         insuranceProvider: values.insuranceProvider,
         insurancePolicyNumber: values.insurancePolicyNumber,
         allergies: values.allergies,
@@ -82,7 +82,7 @@ const DetailForm = ({ user }: { user: User }) => {
           : undefined,
         privacyConsent: values.privacyConsent,
       };
-      const newPatient = await registerPatient(patient);
+      const newPatient = await registerPatient(technician);
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
@@ -213,7 +213,7 @@ const DetailForm = ({ user }: { user: User }) => {
           <CustomFormField
             fieldType={FormFieldType.SELECT}
             control={form.control}
-            name="primaryPhysician"
+            name="technician"
             label="維修技師"
             placeholder="請選擇您的維修技師"
           >

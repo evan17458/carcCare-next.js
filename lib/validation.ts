@@ -256,7 +256,7 @@ export const DetailFormValidation = z.object({
       (phone) => allowedCountryCodes.some((code) => phone.startsWith(code)),
       "電話號碼必須加上有效的國際代碼"
     ),
-  primaryPhysician: z.string().min(2, "選擇至少一位"),
+  technician: z.string().min(2, "選擇至少一位"),
   insuranceProvider: z
     .string()
     .min(3, "車型品牌至少3個字")
@@ -299,7 +299,7 @@ export const DetailFormValidation = z.object({
 });
 
 export const CreateAppointmentSchema = z.object({
-  primaryPhysician: z.string().min(2, "選擇至少一位"),
+  technician: z.string().min(2, "選擇至少一位"),
   schedule: z.coerce.date(),
   reason: z
     .string()
@@ -310,7 +310,7 @@ export const CreateAppointmentSchema = z.object({
 });
 
 export const ScheduleAppointmentSchema = z.object({
-  primaryPhysician: z.string().min(2, "選擇至少一位"),
+  technician: z.string().min(2, "選擇至少一位"),
   schedule: z.coerce.date(),
   reason: z.string().optional(),
   note: z.string().optional(),
@@ -318,7 +318,7 @@ export const ScheduleAppointmentSchema = z.object({
 });
 
 export const CancelAppointmentSchema = z.object({
-  primaryPhysician: z.string().min(2, "選擇至少一位"),
+  technician: z.string().min(2, "選擇至少一位"),
   schedule: z.coerce.date(),
   reason: z.string().optional(),
   note: z.string().optional(),

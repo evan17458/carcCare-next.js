@@ -11,7 +11,7 @@ export const DetailFormDefaultValues = {
   occupation: "",
   emergencyContactName: "",
   emergencyContactNumber: "",
-  primaryPhysician: "",
+  technician: "",
   insuranceProvider: "",
   insurancePolicyNumber: "",
   allergies: "",

@@ -15,7 +15,7 @@ const RequestSuccess = async ({
   const appointment = await getAppointment(appointmentId);
 
   const technician = technicians.find(
-    (technician) => technician.name === appointment.primaryPhysician
+    (technician) => technician.name === appointment.technician
   );
   // 3:12:47
   return (

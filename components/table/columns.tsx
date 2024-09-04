@@ -52,13 +52,13 @@ export const columns: ColumnDef<Appointment>[] = [
     },
   },
   {
-    accessorKey: "primaryPhysician",
+    accessorKey: "technician",
     header: "維修技師",
     cell: ({ row }) => {
       const appointment = row.original;
 
       const technician = technicians.find(
-        (technician) => technician.name === appointment.primaryPhysician
+        (technician) => technician.name === appointment.technician
       );
 
       return (
