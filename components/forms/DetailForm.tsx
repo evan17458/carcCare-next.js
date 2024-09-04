@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { SelectItem } from "@/components/ui/select";
 import {
-  Doctors,
+  technicians,
   GenderOptions,
   IdentificationTypes,
   DetailFormDefaultValues,
@@ -217,17 +217,17 @@ const DetailForm = ({ user }: { user: User }) => {
             label="維修技師"
             placeholder="請選擇您的維修技師"
           >
-            {Doctors?.map((doctor, i) => (
-              <SelectItem key={doctor.name + i} value={doctor.name}>
+            {technicians?.map((technician, i) => (
+              <SelectItem key={technician.name + i} value={technician.name}>
                 <div className="flex cursor-pointer items-center gap-2">
                   <Image
-                    src={doctor.image}
+                    src={technician.image}
                     width={32}
                     height={32}
-                    alt="doctor"
+                    alt="technician"
                     className="rounded-full border border-dark-500"
                   />
-                  <p>{doctor.name}</p>
+                  <p>{technician.name}</p>
                 </div>
               </SelectItem>
             ))}

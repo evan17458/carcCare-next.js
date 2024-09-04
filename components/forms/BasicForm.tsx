@@ -64,7 +64,16 @@ export const BasicForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         <section className="mb-12 space-y-4">
-          <p className="text-dark-700">開始預約.</p>
+          <p
+            className="text-transparent font-extrabold"
+            style={{
+              background: "linear-gradient(to right, #a1c4fd, #c2e9fb)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            建立或查詢基本資料
+          </p>
         </section>
 
         <CustomFormField

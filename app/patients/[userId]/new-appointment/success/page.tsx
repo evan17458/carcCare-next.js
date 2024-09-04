@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Doctors } from "@/constants";
+import { technicians } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import { formatDateTime } from "@/lib/utils";
 
@@ -14,8 +14,8 @@ const RequestSuccess = async ({
   // 03:11:08
   const appointment = await getAppointment(appointmentId);
 
-  const doctor = Doctors.find(
-    (doctor) => doctor.name === appointment.primaryPhysician
+  const technician = technicians.find(
+    (technician) => technician.name === appointment.primaryPhysician
   );
   // 3:12:47
   return (
@@ -49,13 +49,13 @@ const RequestSuccess = async ({
           <p>要求的預約詳細信息: </p>
           <div className="flex items-center gap-3">
             <Image
-              src={doctor?.image!}
-              alt="doctor"
+              src={technician?.image!}
+              alt="technician"
               width={100}
               height={100}
               className="size-6"
             />
-            <p className="whitespace-nowrap"> {doctor?.name}技師</p>
+            <p className="whitespace-nowrap"> {technician?.name}技師</p>
           </div>
           <div className="flex gap-2">
             <Image

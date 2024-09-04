@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { SelectItem } from "@/components/ui/select";
-import { Doctors } from "@/constants";
+import { technicians } from "@/constants";
 import {
   createAppointment,
   updateAppointment,
@@ -138,7 +138,7 @@ export const AppointmentForm = ({
         {type === "create" && (
           <section className="mb-12 space-y-4">
             <h1 className="header">新的預約</h1>
-            <p className="text-dark-700">10 秒內請求新預約.</p>
+            <p className="text-dark-700">快速建立新預約</p>
           </section>
         )}
 
@@ -151,17 +151,17 @@ export const AppointmentForm = ({
               label="維修技師"
               placeholder="請選擇您的維修技師"
             >
-              {Doctors.map((doctor, i) => (
-                <SelectItem key={doctor.name + i} value={doctor.name}>
+              {technicians.map((technician, i) => (
+                <SelectItem key={technician.name + i} value={technician.name}>
                   <div className="flex cursor-pointer items-center gap-2">
                     <Image
-                      src={doctor.image}
+                      src={technician.image}
                       width={32}
                       height={32}
-                      alt="doctor"
+                      alt="technician"
                       className="rounded-full border border-dark-500"
                     />
-                    <p>{doctor.name}</p>
+                    <p>{technician.name}</p>
                   </div>
                 </SelectItem>
               ))}

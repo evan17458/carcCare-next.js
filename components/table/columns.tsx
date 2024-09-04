@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 
-import { Doctors } from "@/constants";
+import { technicians } from "@/constants";
 import { formatDateTime } from "@/lib/utils";
 import { Appointment } from "@/types/appwrite.types";
 
@@ -24,7 +24,7 @@ export const columns: ColumnDef<Appointment>[] = [
     header: "顧客",
     cell: ({ row }) => {
       const appointment = row.original;
-      return <p className="text-14-medium ">{appointment.patient.name}</p>;
+      return <p className="text-14-medium ">{appointment?.patient?.name}</p>;
     },
   },
   {
@@ -57,20 +57,20 @@ export const columns: ColumnDef<Appointment>[] = [
     cell: ({ row }) => {
       const appointment = row.original;
 
-      const doctor = Doctors.find(
-        (doctor) => doctor.name === appointment.primaryPhysician
+      const technician = technicians.find(
+        (technician) => technician.name === appointment.primaryPhysician
       );
 
       return (
         <div className="flex items-center gap-3">
           <Image
-            src={doctor?.image!}
-            alt="doctor"
+            src={technician?.image!}
+            alt="technician"
             width={100}
             height={100}
             className="size-8"
           />
-          <p className="whitespace-nowrap"> {doctor?.name} </p>
+          <p className="whitespace-nowrap"> {technician?.name} </p>
         </div>
       );
     },
@@ -84,13 +84,13 @@ export const columns: ColumnDef<Appointment>[] = [
       return (
         <div className="flex gap-1">
           <AppointmentModal
-            patientId={appointment.patient.$id}
+            patientId={appointment.patient?.$id}
             userId={appointment.userId}
             appointment={appointment}
             type="schedule"
           />
           <AppointmentModal
-            patientId={appointment.patient.$id}
+            patientId={appointment.patient?.$id}
             userId={appointment.userId}
             appointment={appointment}
             type="cancel"

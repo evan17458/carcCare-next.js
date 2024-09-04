@@ -40,7 +40,7 @@ export const IdentificationTypes = [
   "汽車登記號碼",
 ];
 
-export const Doctors = [
+export const technicians = [
   {
     image: "/assets/images/01.png",
     name: "王建綸",
