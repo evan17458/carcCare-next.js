@@ -18,7 +18,7 @@ import {
   DetailFormDefaultValues,
 } from "@/constants";
 import { registerPatient } from "@/lib/actions/patient.actions";
-import { PatientFormValidation } from "@/lib/validation";
+import { DetailFormValidation } from "@/lib/validation";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
@@ -30,8 +30,8 @@ const DetailForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof PatientFormValidation>>({
-    resolver: zodResolver(PatientFormValidation),
+  const form = useForm<z.infer<typeof DetailFormValidation>>({
+    resolver: zodResolver(DetailFormValidation),
     defaultValues: {
       ...DetailFormDefaultValues,
       name: user?.name,
@@ -41,7 +41,7 @@ const DetailForm = ({ user }: { user: User }) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
+  const onSubmit = async (values: z.infer<typeof DetailFormValidation>) => {
     setIsLoading(true);
     let formData;
     if (
@@ -345,14 +345,14 @@ const DetailForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="disclosureConsent"
-            label="我同意出於維修目的使用和披露我的車輛資訊"
+            label="同意為了維修目的而使用和披露我的車輛資訊"
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="privacyConsent"
-            label="我承認我已閱讀並同意維修服務條款及隱私政策"
+            label="我已閱讀並同意維修服務條款及隱私政策"
           />
         </section>
 

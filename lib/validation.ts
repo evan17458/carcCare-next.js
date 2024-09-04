@@ -225,7 +225,7 @@ export const UserFormValidation = z.object({
 // 即當電話號碼不符合正則表達式的要求時，將會返回此錯誤提示。
 
 // 54:58
-export const PatientFormValidation = z.object({
+export const DetailFormValidation = z.object({
   name: z
     .string()
     .min(2, "姓名必須至少有 2 個字")
@@ -240,18 +240,12 @@ export const PatientFormValidation = z.object({
     ),
   birthDate: z.coerce.date(),
   gender: z.enum(["男", "女", "其它"]),
-  address: z
-    .string()
-    .min(6, "地址必須至少為 6 個字")
-    .max(20, "地址不得超過 20 個字"),
-  occupation: z
-    .string()
-    .min(2, "職業必須至少有 2 個字")
-    .max(10, "職業最多 10 個字"),
+  address: z.string().min(6, "地址必須至少6個字").max(20, "地址不得超過20個字"),
+  occupation: z.string().min(2, "職業必須至少2個字").max(10, "職業最多10個字"),
   emergencyContactName: z
     .string()
-    .min(2, "緊急通知人姓名必須至少 2 個字")
-    .max(10, "緊急通知人姓名不得超過 10 個字"),
+    .min(2, "緊急通知人姓名必須至少2個字")
+    .max(10, "緊急通知人姓名不得超過10個字"),
   emergencyContactNumber: z
     .string()
     .refine(
@@ -265,19 +259,25 @@ export const PatientFormValidation = z.object({
   primaryPhysician: z.string().min(2, "選擇至少一位"),
   insuranceProvider: z
     .string()
-    .min(3, "車型品牌 3 個字")
-    .max(20, "車型品牌 20 個字"),
+    .min(3, "車型品牌至少3個字")
+    .max(20, "車型品牌不得超過20個字"),
   insurancePolicyNumber: z
     .string()
-    .min(6, "車牌號碼必須至少為 6 個字")
-    .max(20, "車牌號碼不得超過 20 個字"),
+    .min(6, "車牌號碼必須至少6個字")
+    .max(20, "車牌號碼不得超過20個字"),
   allergies: z.string().optional(),
   currentMedication: z.string().optional(),
   familyMedicalHistory: z.string().optional(),
   pastMedicalHistory: z.string().optional(),
-  identificationType: z.string().optional(),
-  identificationNumber: z.string().optional(),
-  identificationDocument: z.custom<File[]>().optional(),
+  identificationType: z.string().min(1, "必選"),
+  identificationNumber: z.string().min(1, "必填"),
+  identificationDocument: z.custom<File[]>((value) => {
+    return (
+      Array.isArray(value) &&
+      value.length > 0 &&
+      value.every((item) => item instanceof File)
+    );
+  }, "必須上傳文件"),
   treatmentConsent: z
     .boolean()
     .default(false)
