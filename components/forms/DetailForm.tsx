@@ -15,7 +15,7 @@ import {
   Doctors,
   GenderOptions,
   IdentificationTypes,
-  PatientFormDefaultValues,
+  DetailFormDefaultValues,
 } from "@/constants";
 import { registerPatient } from "@/lib/actions/patient.actions";
 import { PatientFormValidation } from "@/lib/validation";
@@ -33,7 +33,7 @@ const DetailForm = ({ user }: { user: User }) => {
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
     defaultValues: {
-      ...PatientFormDefaultValues,
+      ...DetailFormDefaultValues,
       name: user?.name,
       email: user?.email,
       phone: user?.phone,
@@ -319,7 +319,7 @@ const DetailForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SKELETON}
             control={form.control}
             name="identificationDocument"
-            label="車輛證明文件掃描件"
+            label="車輛證明文件掃描檔案"
             renderSkeleton={(field) => (
               // 02:03:54
               <FormControl>
@@ -338,14 +338,14 @@ const DetailForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="treatmentConsent"
-            label="我同意接受針對我的車輛狀況的維修。."
+            label="我同意接受針對我車輛狀況的維修"
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="disclosureConsent"
-            label="我同意出於維修目的使用和披露我的車輛資訊."
+            label="我同意出於維修目的使用和披露我的車輛資訊"
           />
 
           <CustomFormField

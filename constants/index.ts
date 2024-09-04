@@ -1,6 +1,6 @@
 export const GenderOptions = ["男", "女", "其它"];
 
-export const PatientFormDefaultValues = {
+export const DetailFormDefaultValues = {
   firstName: "",
   lastName: "",
   email: "",
@@ -18,7 +18,7 @@ export const PatientFormDefaultValues = {
   currentMedication: "",
   familyMedicalHistory: "",
   pastMedicalHistory: "",
-  identificationType: "Birth Certificate",
+  identificationType: "", //預設值不對,沒有在下面IdentificationTypes內的話,就不會出現placehoder
   identificationNumber: "",
   identificationDocument: [],
   treatmentConsent: false,
@@ -47,7 +47,7 @@ export const Doctors = [
   },
   {
     image: "/assets/images/02.jpg",
-    name: "林佳蓉",
+    name: "黃景行",
   },
   {
     image: "/assets/images/03.jpg",
